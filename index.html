@@ -14,6 +14,23 @@
         <div class="nav-list">
             <li>Sizing Website</li>
         </div>
+        <div class="createNew"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="plus-square" class="svg-inline--fa fa-plus-square fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path fill="currentColor" d="M352 240v32c0 6.6-5.4 12-12 12h-88v88c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-88h-88c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h88v-88c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v88h88c6.6 0 12 5.4 12 12zm96-160v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-48 346V86c0-3.3-2.7-6-6-6H54c-3.3 0-6 2.7-6 6v340c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"></path></svg>
+            <select name="DeviceCategory" id="DeviceCategory">
+                <option value="none">--</option>
+                <option value="desktop">Desktop</option>
+                <option value="phone">Phone</option>
+                <option value="tablet">Tablet</option>
+                <option value="watch">Watch</option>
+                <optgroup label="Desktop">
+                    <option value="macbook14">Macbook 14"</option>
+                    <option value="macbook16">Macbook 16"</option>
+                </optgroup>
+                <optgroup label="Phones">
+                    <option value="iPhoneX">iPhone X</option>
+                    <option value="iPhone6">iPhone 6</option>
+                </optgroup>
+            </select>
+        </div>
     </div>
     <div class="sectionTitle" id="desktopTitle"> Desktop Sizes<div class="dropDownArrow" id="dropDownDesktop"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512"><path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg></div>
         <div class="sectionDesktop" id="sectionDesktop">
@@ -81,5 +98,6 @@
             </div>
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
