@@ -1,13 +1,58 @@
 var newWindow;
 var onClick;
 
-// Arrows can be used to hide/show menus
-// Hide and show images
-// Footer background which fixes to the bottom of menus, only show up with white space, and has overflow restriction so user doesn't pointless scroll unnecessarily 
+// 1 - Hide and show images in full screen mode
+// 2 - Footer background which fixes to the bottom of menus, only show up with white space, and has overflow restriction so user doesn't pointless scroll unnecessarily 
 
-// Add Icon - Ability for user to add height and Width, 
+// 3 - Add Icon - Ability for user to add height and Width, 
 // and then create a button in memory
 // that user can click to reveal size put in
+
+
+var hide = false
+function showHideSwitchDesktop(){
+    var section = document.getElementById("sectionDesktop");
+    if (hide === false){
+        section.style.display = "none";
+        hide = true;
+    } else if (hide === true){
+        section.style.display = "grid";
+        hide = false;
+    }
+}
+function showHideSwitchPhone(){
+    var section = document.getElementById("sectionPhone");
+
+    if (hide == false){
+        section.style.display = "none";
+        hide = true;
+    } else if (hide == true){
+        section.style.display = "grid";
+        hide = false;
+    }
+}
+function showHideSwitchTablet(){
+    var section = document.getElementById("sectionTablet");
+
+    if (hide == false){
+        section.style.display = "none";
+        hide = true;
+    } else if (hide == true){
+        section.style.display = "grid";
+        hide = false;
+    }
+}
+function showHideSwitchWatch(){
+    var section = document.getElementById("sectionWatch");
+
+    if (hide == false){
+        section.style.display = "none";
+        hide = true;
+    } else if (hide == true){
+        section.style.display = "grid";
+        hide = false;
+    }
+}
 
 // Desktop + Laptops devices sizes
 function DesktopSize(){
@@ -69,6 +114,11 @@ document.getElementById("iPhone6Btn").addEventListener("click", iPhone6Size);
 document.getElementById("tabletBtn").addEventListener("click", TabletSize);
 document.getElementById("watch40Btn").addEventListener("click", applWatch40);
 document.getElementById("watch44Btn").addEventListener("click", applWatch44);
+
+document.getElementById("dropDownDesktop").addEventListener("click",showHideSwitchDesktop);
+document.getElementById("dropDownPhone").addEventListener("click",showHideSwitchPhone);
+document.getElementById("dropDownTablet").addEventListener("click",showHideSwitchTablet);
+document.getElementById("dropDownWatch").addEventListener("click",showHideSwitchWatch);
 
 document.getElementById('DeviceCategory').addEventListener("input", handleSelect);
 function handleSelect(ev){
