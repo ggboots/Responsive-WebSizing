@@ -3,17 +3,21 @@
     margin:0;
 }
 
+body{
+    background-color:#24252a;
+}
+
 .navbar{
     display:flex;
+    align-items: center;
     background-color: #fff;
     height:90px;
+    width:100vw;
 }
 
 .nav-logo{
     width:120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
 
 .nav-logo > .fa-laptop-code{
@@ -42,7 +46,7 @@
     padding-right: 0;
     margin:0;
     display:grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap:20px;
 }
 
@@ -50,14 +54,6 @@
     display:none;
     height:100px;
     width:80%;
-}
-
-#DeviceCategory{
-    position:absolute;
-    height:60px;
-    width:25vh;
-    margin:10px;
-    right:30px;
 }
 
 .dropDownArrow{
@@ -75,19 +71,23 @@ button{
     place-items: center;
     height:50px;
     width:200px;
+    display:flex;
+    flex-direction:column;
+}
+
+#DeviceCategory{
+    position: absolute;
+    display:flex;
+    right:20px;
+    height:60px;
+    width:20%;
 }
 
 .createNew{
     display:flex;
-    justify-content: flex-end;
-    height:70px;
-    width:50vw;
-}
-
-.fa-plus-square{
-    height:50px;
-    display:flex;
-    flex-direction:column;
+    height:60px;
+    justify-content: center;
+    padding:20px;
 }
 
 .fa-arrow-right{
@@ -99,9 +99,19 @@ button{
     transform:rotate(180deg);
 }
 
+.hideImages{
+    position:fixed;
+    background-color:#fff;
+    width:100px;
+    height:100px;
+    right:20px;
+    bottom:20px;
+}
+
+
+
 @media only screen and (max-width:500px) {
     body{
-        overflow-x:hidden;
         flex-direction: column; 
     }
 
@@ -148,25 +158,34 @@ button{
     #DeviceCategory{
         position:absolute;
         height:60px;
-        width:20vh;
+        width:10vh;
         margin:10px;
         right:10px;
-        
     }
 
 }
 
-@media only screen and (min-width:1300px){
+@media only screen and (min-width:900px){
     .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch{
         display:grid;
+        grid-template-columns: repeat(3,1fr);
+        justify-content: flex-start;
+        align-content: center;
+        margin:auto;
+        top:50%;
     }
    
 }
-@media only screen and (min-width:1600px){
+/* @media only screen and (min-width:1600px){
     .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch{
         display:grid;
-        
+        grid-template-columns: repeat(4,1fr);
+        justify-content: start;
+        align-content: center;
+        margin:auto;
+        top:50%;
     }
-}
+
+} */
 
 

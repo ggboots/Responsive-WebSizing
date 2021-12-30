@@ -2,7 +2,8 @@ var newWindow;
 var onClick;
 
 // 1 - Hide and show images in full screen mode
-// 2 - Footer background which fixes to the bottom of menus, only show up with white space, and has overflow restriction so user doesn't pointless scroll unnecessarily 
+
+// 2 - Uses array elements to assing variable with total numbers
 
 // 3 - Add Icon - Ability for user to add height and Width, 
 // and then create a button in memory
@@ -54,6 +55,42 @@ function showHideSwitchWatch(){
     }
 }
 
+let hideImages = true;
+function showAllImages(){
+    if (hideImages == true) {
+        var imageContainers = document.getElementsByClassName("imageContainer");
+        for (var i=0; i<imageContainers.length;i++){
+            imageContainers[i].style.display = "flex";
+            imageContainers[i].style.justifyContent = "center";
+            imageContainers[i].style.alignItems = "center";
+            imageContainers[i].style.position = "relative";
+
+        }
+        var showIcon = document.getElementsByClassName("sectionIconImage");
+        for (var i=0; i<showIcon.length;i++){
+            showIcon[i].style.display = "inline";
+            showIcon[i].style.objectFit = "contain";
+            showIcon[i].style.bottom = "20%";
+            showIcon[i].style.width = "60%";
+            showIcon[i].style.height = "70%";
+            showIcon[i].style.position = "absolute";
+        }
+        var buttonSize = document.getElementsByClassName("button");
+        for (var i=0; i<buttonSize.length;i++){
+            buttonSize[i].style.display = "flex";
+            buttonSize[i].style.height = "200px";
+            buttonSize[i].style.width = "100%";
+            buttonSize[i].style.flexDirection = "column";
+        } 
+        hideImages = false;
+    } else if (hideImages == false) {
+        console.log(hideImages);
+        imageContainers.remove();
+        hideImages = true;
+    }
+}
+
+document.getElementById("showImages").addEventListener("click", showAllImages);
 // Desktop + Laptops devices sizes
 function DesktopSize(){
     newWindow = window.open("", "_blank", "width=1440, height=1024");
@@ -173,10 +210,16 @@ var imageCollection = [];
 
 imageCollection[0] = document.createElement("img");
 imageCollection[0].setAttribute("class", "sectionIconImage");
-imageCollection[0].src = 'img/40mmAppleWatchIcon.png';
-document.getElementById("imageContainerWatch40").appendChild(imageCollection[0]);
+imageCollection[0].src = 'img/desktopWallpaper.jpg';
+document.getElementById("desktopIcon").appendChild(imageCollection[0]);
+
 
 imageCollection[1] = document.createElement("img");
 imageCollection[1].setAttribute("class", "sectionIconImage");
-imageCollection[1].src = 'img/44mmAppleWatchIcon.png';
-document.getElementById("imageContainerWatch44").appendChild(imageCollection[1]);
+imageCollection[1].src = 'img/40mmAppleWatchIcon.png';
+document.getElementById("imageContainerWatch40").appendChild(imageCollection[1]);
+
+imageCollection[2] = document.createElement("img");
+imageCollection[2].setAttribute("class", "sectionIconImage");
+imageCollection[2].src = 'img/44mmAppleWatchIcon.png';
+document.getElementById("imageContainerWatch44").appendChild(imageCollection[2]);
