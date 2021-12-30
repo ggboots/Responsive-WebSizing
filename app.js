@@ -1,5 +1,6 @@
 var newWindow;
 var onClick;
+var mediaQuerie = window.matchMedia("(max-width:900px)")
 
 // 1 - Hide and show images in full screen mode
 
@@ -71,7 +72,7 @@ function showAllImages(){
             showIcon[i].style.display = "inline";
             showIcon[i].style.objectFit = "contain";
             showIcon[i].style.bottom = "20%";
-            showIcon[i].style.width = "60%";
+            showIcon[i].style.width = "80%";
             showIcon[i].style.height = "70%";
             showIcon[i].style.position = "absolute";
         }
@@ -85,7 +86,29 @@ function showAllImages(){
         hideImages = false;
     } else if (hideImages == false) {
         console.log(hideImages);
-        imageContainers.remove();
+        var imageContainers = document.getElementsByClassName("imageContainer");
+        for (var i=0; i<imageContainers.length;i++){
+            imageContainers[i].style.display = "flex";
+            if (mediaQuerie.matches){
+                imageContainers[i].style.justifyContent = "center";
+            } else {
+                imageContainers[i].style.justifyContent = "start";
+            }
+            imageContainers[i].style.alignItems = "none";
+            imageContainers[i].style.position = "none";
+
+        }
+        var showIcon = document.getElementsByClassName("sectionIconImage");
+        for (var i=0; i<showIcon.length;i++){
+            showIcon[i].style.display = "none";
+        }
+        var buttonSize = document.getElementsByClassName("button");
+        for (var i=0; i<buttonSize.length;i++){
+            buttonSize[i].style.display = "flex";
+            buttonSize[i].style.height = "50px";
+            buttonSize[i].style.width = "200px";
+            buttonSize[i].style.flexDirection = "column";
+        } 
         hideImages = true;
     }
 }

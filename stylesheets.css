@@ -46,14 +46,19 @@ body{
     padding-right: 0;
     margin:0;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap:20px;
 }
 
 .sectionIconImage{
     display:none;
     height:100px;
-    width:80%;
+    width:90%;
+}
+
+#desktopIcon > img{
+    height:100%;
+    width:100%;
 }
 
 .dropDownArrow{
@@ -108,9 +113,14 @@ button{
     bottom:20px;
 }
 
+.buttonText{
+    margin-top:auto;
+    padding:1rem;
+}
 
 
-@media only screen and (max-width:500px) {
+
+@media only screen and (max-width:600px) {
     body{
         flex-direction: column; 
     }
@@ -150,7 +160,7 @@ button{
         display:flex;
         flex-direction:column;
     }
-    p{
+    .buttonText{
         margin-top:auto;
         padding:1rem;
     }
@@ -163,18 +173,24 @@ button{
         right:10px;
     }
 
+    .hideImages{
+        display:none;
+    }
+
 }
+
 
 @media only screen and (min-width:900px){
     .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch{
         display:grid;
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(4,1fr);
         justify-content: flex-start;
         align-content: center;
         margin:auto;
         top:50%;
     }
-   
+
+  
 }
 /* @media only screen and (min-width:1600px){
     .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch{
