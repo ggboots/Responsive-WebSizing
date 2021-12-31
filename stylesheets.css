@@ -93,6 +93,7 @@ button{
     height:60px;
     justify-content: center;
     padding:20px;
+    cursor:pointer;
 }
 
 .fa-arrow-right{

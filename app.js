@@ -224,10 +224,18 @@ function handleSelect(ev){
         nonSectionTablet.style.display = "none";
         nonSectionIcon[3].style.display = "none";
     }
-
-    
 }
 
+var createNew = document.getElementById("createNew");
+createNew.addEventListener("click", function(){
+    console.log("hello");
+    var windowCreateNewHeight = window.prompt("Enter height you want: ");
+    var windowCreateNewWidth = window.prompt("Enter width you want: ");
+    var createNewHeight = windowCreateNewHeight;
+    var createNewWidth = windowCreateNewWidth;
+    console.log(createNewHeight);
+    console.log(createNewWidth);
+});
 //insertImage
 var imageCollection = [];
 
