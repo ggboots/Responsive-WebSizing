@@ -72,7 +72,7 @@ body{
     display:inline;
 }
 
-button{
+.button{
     place-items: center;
     height:50px;
     width:200px;
@@ -102,19 +102,28 @@ button{
 }
 
 .fa-arrow-right:hover{
-    transform:rotate(180deg);
+    transform:rotate(90deg);
 }
 
 .hideImages{
     position:fixed;
+    display:flex;
+    justify-content: center;
     background-color:#fff;
+    border-radius: 1rem;
     width:100px;
     height:100px;
     right:20px;
     bottom:20px;
 }
 
-
+#hideIcon{
+    display:none;
+}
+.fa-eye, .fa-eye-slash{
+    width:90%;
+    align-self:center;
+}
 
 .buttonText{
     margin-top:auto;
@@ -123,7 +132,9 @@ button{
 
 
 
-@media only screen and (max-width:600px) {
+
+
+@media only screen and (max-width:500px) {
     body{
         flex-direction: column; 
     }
@@ -157,7 +168,7 @@ button{
         position:absolute;
     }
     
-    button{
+    .button{
         height:200px;
         width:85%;
         display:flex;
@@ -208,7 +219,5 @@ button{
         margin:auto;
         top:50%;
     }
-
 } */
-
 

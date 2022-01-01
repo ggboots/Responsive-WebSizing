@@ -1,15 +1,19 @@
-var newWindow;
-var onClick;
-var mediaQuerie = window.matchMedia("(max-width:900px)")
+let newWindow;
+let onClick;
+var desktopMediaMatch = window.matchMedia("(max-width:900px)")
+var mobileMediaMatch = window.matchMedia("(max-width:500px)")
 
-// 1 - Hide and show images in full screen mode
+// 1 - Hide and show images in full screen mode DONE
 
 // 2 - Uses array elements to assing variable with total numbers
+// *end of script, uses 2 for loops
 
 // 3 - Add Icon - Ability for user to add height and Width, 
 // and then create a button in memory
 // that user can click to reveal size put in
+// Save in cache
 
+//font awesome CDN SVG - <i>
 
 var hide = false
 function showHideSwitchDesktop(){
@@ -58,6 +62,8 @@ function showHideSwitchWatch(){
 
 let hideImages = true;
 function showAllImages(){
+    var showIconImage = document.getElementById("showIcon");
+    var hideIconImage = document.getElementById("hideIcon");
     if (hideImages == true) {
         var imageContainers = document.getElementsByClassName("imageContainer");
         for (var i=0; i<imageContainers.length;i++){
@@ -80,16 +86,22 @@ function showAllImages(){
         for (var i=0; i<buttonSize.length;i++){
             buttonSize[i].style.display = "flex";
             buttonSize[i].style.height = "200px";
-            buttonSize[i].style.width = "100%";
+            if(mobileMediaMatch.matches){
+                buttonSize[i].style.width = "85%";
+            }else {
+                buttonSize[i].style.width = "100%";
+            }
             buttonSize[i].style.flexDirection = "column";
         } 
+        showIconImage.style.display = "none";
+        hideIconImage.style.display = "inline";
         hideImages = false;
+        
     } else if (hideImages == false) {
-        console.log(hideImages);
         var imageContainers = document.getElementsByClassName("imageContainer");
         for (var i=0; i<imageContainers.length;i++){
             imageContainers[i].style.display = "flex";
-            if (mediaQuerie.matches){
+            if (desktopMediaMatch.matches){
                 imageContainers[i].style.justifyContent = "center";
             } else {
                 imageContainers[i].style.justifyContent = "start";
@@ -109,6 +121,8 @@ function showAllImages(){
             buttonSize[i].style.width = "200px";
             buttonSize[i].style.flexDirection = "column";
         } 
+        showIconImage.style.display = "inline";
+        hideIconImage.style.display = "none";
         hideImages = true;
     }
 }
@@ -122,14 +136,12 @@ function DesktopSize(){
     newWindow.document.write('<style> body{margin:0;}</style>');
 }
 function mbp14Size(){
-    newWindow = window.open("", "_blank", "width=1400, height=800");
-    newWindow.document.write('<img src="MontereyApple.jpeg">');  
+    newWindow = window.open("", "_blank", "width=1400, height=800"); 
     newWindow.document.write("<style> *{margin:0;}img{height:100%; width:100%;}</style>");
 }
 
 function mbp16Size(){
-    newWindow = window.open("", "_blank", "width=3072, height=1920");
-    newWindow.document.write('<img src="mbp16-wallpaper.jpg">');  
+    newWindow = window.open("", "_blank", "width=3072, height=1920");  
     newWindow.document.write("<style> img{height:100%; width:100%;}</style>");
 }
 
@@ -228,13 +240,22 @@ function handleSelect(ev){
 
 var createNew = document.getElementById("createNew");
 createNew.addEventListener("click", function(){
-    console.log("hello");
+
+    // error check that prompt is integer value 
+    // Create custom input screen
     var windowCreateNewHeight = window.prompt("Enter height you want: ");
     var windowCreateNewWidth = window.prompt("Enter width you want: ");
     var createNewHeight = windowCreateNewHeight;
     var createNewWidth = windowCreateNewWidth;
+    
     console.log(createNewHeight);
     console.log(createNewWidth);
+    newElement = document.createElement("div");
+    newElement.setAttribute("class", "hideImages");
+    newElement.style.height = createNewHeight;
+    newElement.style.width = createNewWidth;
+    document.getElementById("createNew").appendChild(newElement);
+
 });
 //insertImage
 var imageCollection = [];
@@ -243,7 +264,6 @@ imageCollection[0] = document.createElement("img");
 imageCollection[0].setAttribute("class", "sectionIconImage");
 imageCollection[0].src = 'img/desktopWallpaper.jpg';
 document.getElementById("desktopIcon").appendChild(imageCollection[0]);
-
 
 imageCollection[1] = document.createElement("img");
 imageCollection[1].setAttribute("class", "sectionIconImage");
