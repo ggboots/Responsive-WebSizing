@@ -247,10 +247,46 @@ document.getElementById("desktopIcon").appendChild(imageCollection[0]);
 
 imageCollection[1] = document.createElement("img");
 imageCollection[1].setAttribute("class", "sectionIconImage");
-imageCollection[1].src = 'img/40mmAppleWatchIcon.png';
-document.getElementById("imageContainerWatch40").appendChild(imageCollection[1]);
+imageCollection[1].src = 'img/mbp14Icon.png';
+document.getElementById("mbp14Btn").appendChild(imageCollection[1]);
 
 imageCollection[2] = document.createElement("img");
 imageCollection[2].setAttribute("class", "sectionIconImage");
-imageCollection[2].src = 'img/44mmAppleWatchIcon.png';
-document.getElementById("imageContainerWatch44").appendChild(imageCollection[2]);
+imageCollection[2].src = 'img/mbp16Icon.png';
+document.getElementById("mbp16Btn").appendChild(imageCollection[2]);
+
+imageCollection[3] = document.createElement("img");
+imageCollection[3].setAttribute("class", "sectionIconImage");
+imageCollection[3].src = 'img/iPhoneBasicIcon.png';
+document.getElementById("phoneBtn").appendChild(imageCollection[3]);
+
+imageCollection[4] = document.createElement("img");
+imageCollection[4].setAttribute("class", "sectionIconImage");
+imageCollection[4].src = 'img/iPhoneXicon.png';
+document.getElementById("iPhoneXBtn").appendChild(imageCollection[4]);
+
+imageCollection[5] = document.createElement("img");
+imageCollection[5].setAttribute("class", "sectionIconImage");
+imageCollection[5].src = 'img/iPhone6Icon.png';
+document.getElementById("iPhone6Btn").appendChild(imageCollection[5]);
+
+imageCollection[6] = document.createElement("img");
+imageCollection[6].setAttribute("class", "sectionIconImage");
+imageCollection[6].src = 'img/iPadBasicIcon.png';
+document.getElementById("tabletBtn").appendChild(imageCollection[6]);
+
+imageCollection[7] = document.createElement("img");
+imageCollection[7].setAttribute("class", "sectionIconImage");
+imageCollection[7].src = 'img/40mmAppleWatchIcon.png';
+document.getElementById("imageContainerWatch40").appendChild(imageCollection[7]);
+
+imageCollection[8] = document.createElement("img");
+imageCollection[8].setAttribute("class", "sectionIconImage");
+imageCollection[8].src = 'img/44mmAppleWatchIcon.png';
+document.getElementById("imageContainerWatch44").appendChild(imageCollection[8]);
+
+
+
+// for loop which assigns array element based on how many photos are available
+// After loop, assign images 
+// another for loop that the runs through assigned arrays and appends 

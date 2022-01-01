@@ -114,6 +114,8 @@ button{
     bottom:20px;
 }
 
+
+
 .buttonText{
     margin-top:auto;
     padding:1rem;
@@ -176,6 +178,10 @@ button{
 
     .hideImages{
         display:none;
+    }
+    #desktopIcon > img {
+        padding:0;
+        height:140px;
     }
 
 }
