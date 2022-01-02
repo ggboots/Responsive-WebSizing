@@ -13,8 +13,6 @@ var mobileMediaMatch = window.matchMedia("(max-width:500px)")
 // that user can click to reveal size put in
 // Save in cache
 
-//font awesome CDN SVG - <i>
-
 var hide = false
 function showHideSwitchDesktop(){
     var section = document.getElementById("sectionDesktop");
@@ -251,10 +249,11 @@ createNew.addEventListener("click", function(){
     console.log(createNewHeight);
     console.log(createNewWidth);
     newElement = document.createElement("div");
-    newElement.setAttribute("class", "hideImages");
-    newElement.style.height = createNewHeight;
-    newElement.style.width = createNewWidth;
-    document.getElementById("createNew").appendChild(newElement);
+    newElement.setAttribute("class", "button");
+    newElement.setAttribute("id", "custom1");
+    // newElement.style.height = createNewHeight;
+    // newElement.style.width = createNewWidth;
+    document.getElementById("addNew").appendChild(newElement);
 
 });
 //insertImage

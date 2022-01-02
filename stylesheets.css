@@ -17,12 +17,16 @@ body{
 
 .nav-logo{
     width:120px;
+    height:80px;
 
 }
 
-.nav-logo > .fa-laptop-code{
+/* don't ever use i{} again*/
+
+.fa-laptop-code{
+    font-size: 4rem;
     padding:10px;
-    height:60px;
+    align-self: center;
 }
 
 .nav-list{
@@ -39,7 +43,7 @@ body{
     color:#fff;
 }
 
-.sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch{
+.sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionOther{
     background-color:#24252a;
     width:100%;
     padding:10px;
@@ -90,15 +94,21 @@ body{
 
 .createNew{
     display:flex;
-    height:60px;
     justify-content: center;
+    height:100px;
     padding:20px;
     cursor:pointer;
+    color:#fff;
+}
+.fa-plus-square{
+    font-size:4rem;
+    align-self: flex-end;
 }
 
 .fa-arrow-right{
-    height:15px;
-    width:20px;
+    align-self: center;
+    font-size: 1rem;
+
 }
 
 .fa-arrow-right:hover{
@@ -121,7 +131,7 @@ body{
     display:none;
 }
 .fa-eye, .fa-eye-slash{
-    width:90%;
+    font-size: 4rem;
     align-self:center;
 }
 
@@ -139,7 +149,7 @@ body{
         flex-direction: column; 
     }
 
-    .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch{
+    .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionOther{
         display:grid;
         grid-template-columns: 1fr;
         align-content: center;
@@ -199,7 +209,7 @@ body{
 
 
 @media only screen and (min-width:900px){
-    .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch{
+    .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionOther{
         display:grid;
         grid-template-columns: repeat(4,1fr);
         justify-content: flex-start;
