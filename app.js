@@ -159,6 +159,10 @@ function TabletSize(){
     newWindow = window.open("", "_blank", "width=1024, height=768");
 }
 
+function iPad12inch(){
+    newWindow = window.open("", "_blank", "width=1024, height=768")
+}
+
 // Watch and Other devices sizes
 function applWatch40(){
     newWindow = window.open("", "_blank", "width=292, height=320");
@@ -182,6 +186,7 @@ document.getElementById("phoneBtn").addEventListener("click", PhoneSize);
 document.getElementById("iPhoneXBtn").addEventListener("click", iPhoneXSize);
 document.getElementById("iPhone6Btn").addEventListener("click", iPhone6Size);
 document.getElementById("tabletBtn").addEventListener("click", TabletSize);
+document.getElementById("iPad12inch").addEventListener("click", iPad12inch);
 document.getElementById("watch40Btn").addEventListener("click", applWatch40);
 document.getElementById("watch44Btn").addEventListener("click", applWatch44);
 
@@ -296,13 +301,18 @@ document.getElementById("tabletBtn").appendChild(imageCollection[6]);
 
 imageCollection[7] = document.createElement("img");
 imageCollection[7].setAttribute("class", "sectionIconImage");
-imageCollection[7].src = 'img/40mmAppleWatchIcon.png';
-document.getElementById("imageContainerWatch40").appendChild(imageCollection[7]);
+imageCollection[7].src = 'img/iPad12.9Icon.png';
+document.getElementById("iPad12inch").appendChild(imageCollection[7]);
 
 imageCollection[8] = document.createElement("img");
 imageCollection[8].setAttribute("class", "sectionIconImage");
-imageCollection[8].src = 'img/44mmAppleWatchIcon.png';
-document.getElementById("imageContainerWatch44").appendChild(imageCollection[8]);
+imageCollection[8].src = 'img/40mmAppleWatchIcon.png';
+document.getElementById("imageContainerWatch40").appendChild(imageCollection[8]);
+
+imageCollection[9] = document.createElement("img");
+imageCollection[9].setAttribute("class", "sectionIconImage");
+imageCollection[9].src = 'img/44mmAppleWatchIcon.png';
+document.getElementById("imageContainerWatch44").appendChild(imageCollection[9]);
 
 
 
