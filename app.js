@@ -3,8 +3,6 @@ let onClick;
 var desktopMediaMatch = window.matchMedia("(max-width:900px)")
 var mobileMediaMatch = window.matchMedia("(max-width:500px)")
 
-// 1 - Hide and show images in full screen mode DONE
-
 // 2 - Uses array elements to assing variable with total numbers
 // *end of script, uses 2 for loops
 
@@ -253,16 +251,41 @@ createNew.addEventListener("click", function(){
     
     console.log(createNewHeight);
     console.log(createNewWidth);
-    newElement = document.createElement("div");
+    newElement = document.createElement("button");
     newElement.setAttribute("class", "button");
     newElement.setAttribute("id", "custom1");
     // newElement.style.height = createNewHeight;
     // newElement.style.width = createNewWidth;
+    // use for inside of element
     document.getElementById("addNew").appendChild(newElement);
 
+    var totalCurrentSize = document.getElementsByClassName("button");
+
+    i = totalCurrentSize.length;
+
+    // use .length to add to imageCollection + for loops
+    console.log(totalCurrentSize);
+    console.log(i); //11th elements
+
+    console.log(String(createNewHeight));
+    console.log(String(createNewWidth));
+    function testNewElementOpen(){
+        //newWindow = window.open("", "_blank", createNewHeight, createNewWidth);
+        newWindow = window.open("", "_blank", "width=" + createNewWidth + ",height=" + createNewHeight);
+    }
+    document.getElementById("custom1").addEventListener("click", testNewElementOpen);
+
 });
+
+
+
 //insertImage
 var imageCollection = [];
+
+//imageCollection[i] = document.createElement("img");
+//imageCollection[i].setAttribute("class", "sectionIconImage");
+// and then allow image assignment to be done by actually going to each array element
+// document.getElementById("desktopIcon").appendChild(imageCollection[i]);
 
 imageCollection[0] = document.createElement("img");
 imageCollection[0].setAttribute("class", "sectionIconImage");
