@@ -43,13 +43,13 @@ body{
     color:#fff;
 }
 
-.sectionOther{
+.sectionCustom{
     font-size:1.2rem;
     padding:1rem;
     color:#fff;
 }
 
-.sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionOther{
+.sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionCustom{
     background-color:#24252a;
     width:100%;
     padding:10px;
@@ -155,7 +155,7 @@ body{
         flex-direction: column; 
     }
 
-    .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionOther{
+    .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionCustom{
         display:grid;
         grid-template-columns: 1fr;
         align-content: center;
@@ -215,7 +215,7 @@ body{
 
 
 @media only screen and (min-width:900px){
-    .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionOther{
+    .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionCustom{
         display:grid;
         grid-template-columns: repeat(4,1fr);
         justify-content: flex-start;

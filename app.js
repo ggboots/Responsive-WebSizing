@@ -2,6 +2,7 @@ let newWindow;
 let onClick;
 var desktopMediaMatch = window.matchMedia("(max-width:900px)")
 var mobileMediaMatch = window.matchMedia("(max-width:500px)")
+var newButtonContainer = 0;
 
 // 2 - Uses array elements to assing variable with total numbers
 // *end of script, uses 2 for loops
@@ -240,24 +241,37 @@ function handleSelect(ev){
 }
 
 var createNew = document.getElementById("createNew");
+// Create custom input screen
 createNew.addEventListener("click", function(){
 
     // error check that prompt is integer value 
-    // Create custom input screen
-    var windowCreateNewHeight = window.prompt("Enter height you want: ");
-    var windowCreateNewWidth = window.prompt("Enter width you want: ");
+    do {
+        var windowCreateNewHeight = Number(window.prompt("Enter height you want: "));
+        var windowCreateNewWidth = Number(window.prompt("Enter width you want: "));
+    } while (windowCreateNewHeight && windowCreateNewWidth === Number);
     var createNewHeight = windowCreateNewHeight;
     var createNewWidth = windowCreateNewWidth;
-    
     console.log(createNewHeight);
     console.log(createNewWidth);
+
+    // grandParent = document.createElement("div");
+    // grandParent.setAttribute("class", "sectionOther");
+    parent = document.createElement("div");
+    parent.setAttribute("class", "imageContainer");
+    parent.setAttribute("id", "addNew"+newButtonContainer);
+    // grandParent.appendChild(parent);
+    document.getElementById("customContainer").appendChild(parent);
+
+
     newElement = document.createElement("button");
     newElement.setAttribute("class", "button");
     newElement.setAttribute("id", "custom1");
     // newElement.style.height = createNewHeight;
     // newElement.style.width = createNewWidth;
     // use for inside of element
-    document.getElementById("addNew").appendChild(newElement);
+    document.getElementById("addNew"+newButtonContainer).appendChild(newElement);
+
+    newButtonContainer++;
 
     var totalCurrentSize = document.getElementsByClassName("button");
 
@@ -267,11 +281,9 @@ createNew.addEventListener("click", function(){
     console.log(totalCurrentSize);
     console.log(i); //11th elements
 
-    console.log(String(createNewHeight));
-    console.log(String(createNewWidth));
     function testNewElementOpen(){
         //newWindow = window.open("", "_blank", createNewHeight, createNewWidth);
-        newWindow = window.open("", "_blank", "width=" + createNewWidth + ",height=" + createNewHeight);
+        newWindow = window.open("", "_blank", "width=" + createNewWidth + ",height=" + createNewHeight); //Return as a string
     }
     document.getElementById("custom1").addEventListener("click", testNewElementOpen);
 
