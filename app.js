@@ -1,3 +1,7 @@
+//error check prompt for numbers only
+// local storage for new custom buttons
+
+
 let newWindow;
 let onClick;
 var desktopMediaMatch = window.matchMedia("(max-width:900px)")
@@ -167,7 +171,7 @@ function applWatch40(){
     newWindow = window.open("", "_blank", "width=292, height=320");
     newWindow.document.write('<img src="img/40mmBackground.jpg">');  
     newWindow.document.write("<style> body{padding:0; margin:0; border-sizing:border-box;}</style>");
-    newWindow.document.write("<style> img{height:100%; width:100%; padding:0; margin:0; border-sizing:border-box;}</style>");
+    newWindow.document.write("<style> img{height:100%; width:100%; padding:0; margin:0; border-sizing:border-box; }</style>");
 
 }
 function applWatch44(){
@@ -244,6 +248,8 @@ var createNew = document.getElementById("createNew");
 // Create custom input screen
 createNew.addEventListener("click", function(){
 
+    // Create custom input screen
+
     // error check that prompt is integer value 
     do {
         var windowCreateNewHeight = Number(window.prompt("Enter height you want: "));
@@ -251,11 +257,7 @@ createNew.addEventListener("click", function(){
     } while (windowCreateNewHeight && windowCreateNewWidth === Number);
     var createNewHeight = windowCreateNewHeight;
     var createNewWidth = windowCreateNewWidth;
-    console.log(createNewHeight);
-    console.log(createNewWidth);
 
-    // grandParent = document.createElement("div");
-    // grandParent.setAttribute("class", "sectionOther");
     parent = document.createElement("div");
     parent.setAttribute("class", "imageContainer");
     parent.setAttribute("id", "addNew"+newButtonContainer);
@@ -265,13 +267,15 @@ createNew.addEventListener("click", function(){
 
     newElement = document.createElement("button");
     newElement.setAttribute("class", "button");
-    newElement.setAttribute("id", "custom1");
-    // newElement.style.height = createNewHeight;
-    // newElement.style.width = createNewWidth;
+    newElement.setAttribute("id", "custom"+newButtonContainer);
+    innerTextElement = document.createElement("p");
+    innerTextElement.setAttribute("class", "buttonText");
+    innerTextElement.innerHTML = "Custom Size "+newButtonContainer;
+    newElement.appendChild(innerTextElement);
+
     // use for inside of element
     document.getElementById("addNew"+newButtonContainer).appendChild(newElement);
 
-    newButtonContainer++;
 
     var totalCurrentSize = document.getElementsByClassName("button");
 
@@ -281,12 +285,24 @@ createNew.addEventListener("click", function(){
     console.log(totalCurrentSize);
     console.log(i); //11th elements
 
+
+    localStorage.setItem("custom"+newButtonContainer, "custom"+newButtonContainer);
+    console.log(window.localStorage);
+
+    //localStorage.removeItem();
+    // create button nxt to custom title, allowing user to reset local storage
+    localStorage.getItem("custom"+newButtonContainer);
+
+
+    //localStorage.clear();
+
     function testNewElementOpen(){
         //newWindow = window.open("", "_blank", createNewHeight, createNewWidth);
         newWindow = window.open("", "_blank", "width=" + createNewWidth + ",height=" + createNewHeight); //Return as a string
     }
-    document.getElementById("custom1").addEventListener("click", testNewElementOpen);
+    document.getElementById("custom"+newButtonContainer).addEventListener("click", testNewElementOpen);
 
+    newButtonContainer++;
 });
 
 
