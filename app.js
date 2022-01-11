@@ -25,16 +25,32 @@ var localStorageCount = 0;
 // 3) make clear button, as i need to reset the count instead of reset throught console
 
 for(var i =0; i<localStorage.length; i++){
-    if (localStorageCount == 0){
-        localStorage.getItem("custom"+newButtonContainer);
+    if (localStorageCount == 0 ){
+        parent = document.createElement("div");
+        parent.setAttribute("class", "imageContainer");
+        parent.setAttribute("id", "addNew"+newButtonContainer);
+        // grandParent.appendChild(parent);
+        document.getElementById("customContainer").appendChild(parent);
+
+
+        newElement = document.createElement("button");
+        newElement.setAttribute("class", "button");
+        newElement.setAttribute("id", "custom"+newButtonContainer);
+        innerTextElement = document.createElement("p");
+        innerTextElement.setAttribute("class", "buttonText");
+        innerTextElement.innerHTML = "Custom Size "+newButtonContainer;
+        newElement.appendChild(innerTextElement);
+
+        // use for inside of element
+    document.getElementById("addNew"+newButtonContainer).appendChild(newElement);
         localStorageCount++;
-    } else if (localStorageCount == 1 ){
-        localStorage.getItem("custom"+windowCreateNewHeight);
+    } else if (localStorageCount == 1){
         localStorageCount++;
     } else if (localStorageCount == 2){
-        localStorage.getItem("custom"+windowCreateNewWidth);
         localStorageCount = 0;
     }
+
+    newButtonContainer++;
 }
 
 

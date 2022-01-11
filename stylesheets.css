@@ -30,10 +30,16 @@ body{
 }
 
 .nav-list{
+    width:25vw;
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap:15px;
     align-items: center;
     list-style: none;
+}
+
+.nav-list:last-child{
+    display: flex;
 }
 
 .sectionTitle{
@@ -117,6 +123,13 @@ body{
 
 }
 
+.fa-trash-restore{
+    align-self: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: #fff;
+}
+
 .fa-arrow-right:hover{
     transform:rotate(90deg);
 }
@@ -146,6 +159,13 @@ body{
     padding:1rem;
 }
 
+#clearCustom{
+    display: flex;
+    height:60px;
+    width:70px;
+    background-color: #000;
+    border-radius:20rem;
+}
 
 
 
@@ -224,6 +244,9 @@ body{
         top:50%;
     }
 
+    .nav-list{
+        width:25vw;
+    }
 
   
 }
