@@ -251,12 +251,15 @@ createNew.addEventListener("click", function(){
     // Create custom input screen
 
     // error check that prompt is integer value 
+    //change to parseInt - changes value passed in to a integer value
     do {
-        var windowCreateNewHeight = Number(window.prompt("Enter height you want: "));
-        var windowCreateNewWidth = Number(window.prompt("Enter width you want: "));
-    } while (windowCreateNewHeight && windowCreateNewWidth === Number);
+        var windowCreateNewHeight = parseInt(window.prompt("Enter height you want: "));
+        var windowCreateNewWidth = parseInt(window.prompt("Enter width you want: "));
+    } while (isNaN(windowCreateNewHeight) && isNaN(windowCreateNewWidth));
     var createNewHeight = windowCreateNewHeight;
     var createNewWidth = windowCreateNewWidth;
+
+    // > isNaN - represent not a number
 
     parent = document.createElement("div");
     parent.setAttribute("class", "imageContainer");
