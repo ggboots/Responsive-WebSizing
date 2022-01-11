@@ -8,6 +8,8 @@ var desktopMediaMatch = window.matchMedia("(max-width:900px)")
 var mobileMediaMatch = window.matchMedia("(max-width:500px)")
 var newButtonContainer = 0;
 
+var localStorageCount = 0;
+
 // 2 - Uses array elements to assing variable with total numbers
 // *end of script, uses 2 for loops
 
@@ -15,6 +17,26 @@ var newButtonContainer = 0;
 // and then create a button in memory
 // that user can click to reveal size put in
 // Save in cache
+
+
+// 1) LocalStorage on load,
+// Check both Custom button, height and new width
+// 2) display saved content to page, and then carry on count
+// 3) make clear button, as i need to reset the count instead of reset throught console
+
+for(var i =0; i<localStorage.length; i++){
+    if (localStorageCount == 0){
+        localStorage.getItem("custom"+newButtonContainer);
+        localStorageCount++;
+    } else if (localStorageCount == 1 ){
+        localStorage.getItem("custom"+windowCreateNewHeight);
+        localStorageCount++;
+    } else if (localStorageCount == 2){
+        localStorage.getItem("custom"+windowCreateNewWidth);
+        localStorageCount = 0;
+    }
+}
+
 
 var hide = false
 function showHideSwitchDesktop(){
@@ -251,7 +273,6 @@ createNew.addEventListener("click", function(){
     // Create custom input screen
 
     // error check that prompt is integer value 
-    //change to parseInt - changes value passed in to a integer value
     do {
         var windowCreateNewHeight = parseInt(window.prompt("Enter height you want: "));
         var windowCreateNewWidth = parseInt(window.prompt("Enter width you want: "));
@@ -259,7 +280,6 @@ createNew.addEventListener("click", function(){
     var createNewHeight = windowCreateNewHeight;
     var createNewWidth = windowCreateNewWidth;
 
-    // > isNaN - represent not a number
 
     parent = document.createElement("div");
     parent.setAttribute("class", "imageContainer");
@@ -283,17 +303,14 @@ createNew.addEventListener("click", function(){
     var totalCurrentSize = document.getElementsByClassName("button");
 
     i = totalCurrentSize.length;
-
-    // use .length to add to imageCollection + for loops
-    console.log(totalCurrentSize);
-    console.log(i); //11th elements
-
-
     localStorage.setItem("custom"+newButtonContainer, "custom"+newButtonContainer);
+    localStorage.setItem("custom"+newButtonContainer+"Height", windowCreateNewHeight);
+    localStorage.setItem("custom"+newButtonContainer+"Width",windowCreateNewWidth);
     console.log(window.localStorage);
 
     //localStorage.removeItem();
     // create button nxt to custom title, allowing user to reset local storage
+
     localStorage.getItem("custom"+newButtonContainer);
 
 
@@ -373,3 +390,13 @@ document.getElementById("imageContainerWatch44").appendChild(imageCollection[9])
 // for loop which assigns array element based on how many photos are available
 // After loop, assign images 
 // another for loop that the runs through assigned arrays and appends 
+
+
+
+
+//codeBin
+//i = totalCurrentSize.length;
+
+//     // use .length to add to imageCollection + for loops
+//     console.log(totalCurrentSize);
+//     console.log(i); //11th elements
