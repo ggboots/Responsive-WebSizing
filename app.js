@@ -56,15 +56,8 @@ for(var i =0; i<localStorage.length; i++){
         newButtonContainer++;
         localStorageCountButton++;
 
-        function dynamicButton(){
-            
-        }
+
     }
-}
-
-
-for(var i=0;i<localStorageCountButton.length;i++){
-
 }
 
 
@@ -257,6 +250,7 @@ function handleSelect(ev){
     var nonSectionPhone = document.getElementById("phoneTitle");
     var nonSectionWatch = document.getElementById("watchTitle");
     var nonSectionTablet = document.getElementById("tabletTitle");
+    var nonSectionCustom = document.getElementById("customTitle");
     var nonSectionIcon = document.getElementsByClassName("dropDownArrow");
     /* console.log(select.value); */ //ev.target get the exact value
     // display to be set as null, setting as grid and flex will effect button
@@ -269,35 +263,48 @@ function handleSelect(ev){
         nonSectionPhone.style.display = "";
         nonSectionWatch.style.display = "";
         nonSectionTablet.style.display = "";
+        nonSectionCustom.style.display = "";
     } else if (select.value === "desktop"){
         nonSectionIcon[0].style.display = "none";
         nonSectionDesktop.style.display = "";
         nonSectionPhone.style.display = "none";
         nonSectionWatch.style.display = "none";
         nonSectionTablet.style.display = "none";
+        nonSectionCustom.style.display = "none";
     } else if (select.value ==="phone") {
         nonSectionDesktop.style.display = "none";
         nonSectionPhone.style.display = "";
         nonSectionWatch.style.display = "none";
         nonSectionTablet.style.display = "none";
+        nonSectionCustom.style.display = "none";
         nonSectionIcon[1].style.display = "none";
     } else if (select.value ==="tablet") {
         nonSectionDesktop.style.display = "none";
         nonSectionPhone.style.display = "none";
         nonSectionWatch.style.display = "none";
         nonSectionTablet.style.display = "";
+        nonSectionCustom.style.display = "none";
         nonSectionIcon[2].style.display = "none";
     } else if (select.value ==="watch") {
         nonSectionDesktop.style.display = "none";
         nonSectionPhone.style.display = "none";
         nonSectionWatch.style.display = "";
         nonSectionTablet.style.display = "none";
+        nonSectionCustom.style.display = "none";
+        nonSectionIcon[3].style.display = "none";
+    } else if (select.value ==="custom") {
+        nonSectionDesktop.style.display = "none";
+        nonSectionPhone.style.display = "none";
+        nonSectionWatch.style.display = "none";
+        nonSectionTablet.style.display = "none";
+        nonSectionCustom.style.display = "";
         nonSectionIcon[3].style.display = "none";
     }
 }
 
 var createNew = document.getElementById("createNew");
 // Create custom input screen
+
 createNew.addEventListener("click", function(){
 
     // Create custom input screen
@@ -311,80 +318,97 @@ createNew.addEventListener("click", function(){
         inputWidthBox = document.createElement("input");
         inputCreateButton = document.createElement("button");
         inputCreateButton.setAttribute("class","far fa-plus-square")
-        // inputHeightBox.setAttribute("type", "Number")
-        // inputWidthBox.setAttribute("type", "Number")
+        inputHeightBox.setAttribute("id", "inputHeightBox")
+        inputWidthBox.setAttribute("id", "inputWidthBox")
         inputContainer.setAttribute("class", "inputContainer");
+        inputContainer.setAttribute("ID", "inputContainer");
         let backdrop = document.getElementById("backdrop");
         backdrop.style.filter = "blur(8px)";
+        backdrop.style.pointerEvents = "none";
 
         inputContainer.append(inputTitle);
         inputContainer.append(inputHeightBox);
         inputContainer.append(inputWidthBox);
         inputContainer.append(inputCreateButton);
 
-        document.body.append(inputContainer);
+        document.body.append(inputContainer
+            );
+        inputCreateButton.addEventListener("click", function(e){ 
+            
 
-        inputCreateButton.addEventListener("click", function(){
+            windowCreateNewHeight = document.getElementById("inputHeightBox").value;
+            windowCreateNewWidth = document.getElementById("inputWidthBox").value;
+
+            var createNewHeight = windowCreateNewHeight;
+            var createNewWidth = windowCreateNewWidth;
+
+            parent = document.createElement("div");
+            parent.setAttribute("class", "imageContainer");
+            parent.setAttribute("id", "addNew"+newButtonContainer);
+            // grandParent.appendChild(parent);
+            document.getElementById("customContainer").appendChild(parent);
+
+
+            newElement = document.createElement("button");
+            newElement.setAttribute("class", "button");
+            newElement.setAttribute("id", "custom"+newButtonContainer);
+            innerTextElement = document.createElement("p");
+            innerTextElement.setAttribute("class", "buttonText");
+            innerTextElement.innerHTML = "Custom Size "+newButtonContainer;
+            newElement.appendChild(innerTextElement);
+
+            // use for inside of element
+            document.getElementById("addNew"+newButtonContainer).appendChild(newElement);
+
+
+            var totalCurrentSize = document.getElementsByClassName("button");
+
+            i = totalCurrentSize.length;
+            localStorage.setItem("custom"+newButtonContainer, "custom"+newButtonContainer);
+            localStorage.setItem("custom"+newButtonContainer+"Height", windowCreateNewHeight);
+            localStorage.setItem("custom"+newButtonContainer+"Width",windowCreateNewWidth);
+            console.log(window.localStorage);
+
+            //localStorage.removeItem();
+            // create button nxt to custom title, allowing user to reset local storage
+
+            localStorage.getItem("custom"+newButtonContainer);
+
+            //localStorage.clear();
+
+            function testNewElementOpen(){
+                //newWindow = window.open("", "_blank", createNewHeight, createNewWidth);
+                newWindow = window.open("", "_blank", "width=" + createNewWidth + ",height=" + createNewHeight); //Return as a string
+            }
+            document.getElementById("custom"+newButtonContainer).addEventListener("click", testNewElementOpen);
+
+            newButtonContainer++;
+
+            backdrop.style.filter = "blur(0px)";
+            backdrop.style.pointerEvents = "auto";
+
+            inputContainer.remove();
+            
 
         });
+    
 
+
+        windowCreateNewHeight = document.getElementById("inputHeightBox").value;
+        windowCreateNewWidth = document.getElementById("inputWidthBox").value;
 
         
-    } while(isNaN(windowCreateNewHeight) && isNaN(windowCreateNewWidth));
+    } while(isNaN(windowCreateNewHeight) && isNaN(windowCreateNewWidth));   
 
-    // error check that prompt is integer value 
-    // do {
-    //     var windowCreateNewHeight = parseInt(window.prompt("Enter height you want: "));
-    //     var windowCreateNewWidth = parseInt(window.prompt("Enter width you want: "));
-    // } while (isNaN(windowCreateNewHeight) && isNaN(windowCreateNewWidth));
-    var createNewHeight = windowCreateNewHeight;
-    var createNewWidth = windowCreateNewWidth;
-
-
-    parent = document.createElement("div");
-    parent.setAttribute("class", "imageContainer");
-    parent.setAttribute("id", "addNew"+newButtonContainer);
-    // grandParent.appendChild(parent);
-    document.getElementById("customContainer").appendChild(parent);
-
-
-    newElement = document.createElement("button");
-    newElement.setAttribute("class", "button");
-    newElement.setAttribute("id", "custom"+newButtonContainer);
-    innerTextElement = document.createElement("p");
-    innerTextElement.setAttribute("class", "buttonText");
-    innerTextElement.innerHTML = "Custom Size "+newButtonContainer;
-    newElement.appendChild(innerTextElement);
-
-    // use for inside of element
-    document.getElementById("addNew"+newButtonContainer).appendChild(newElement);
-
-
-    var totalCurrentSize = document.getElementsByClassName("button");
-
-    i = totalCurrentSize.length;
-    localStorage.setItem("custom"+newButtonContainer, "custom"+newButtonContainer);
-    localStorage.setItem("custom"+newButtonContainer+"Height", windowCreateNewHeight);
-    localStorage.setItem("custom"+newButtonContainer+"Width",windowCreateNewWidth);
-    console.log(window.localStorage);
-
-    //localStorage.removeItem();
-    // create button nxt to custom title, allowing user to reset local storage
-
-    localStorage.getItem("custom"+newButtonContainer);
-
-
-    //localStorage.clear();
-
-    function testNewElementOpen(){
-        //newWindow = window.open("", "_blank", createNewHeight, createNewWidth);
-        newWindow = window.open("", "_blank", "width=" + createNewWidth + ",height=" + createNewHeight); //Return as a string
-    }
-    document.getElementById("custom"+newButtonContainer).addEventListener("click", testNewElementOpen);
-
-    newButtonContainer++;
+    
 });
 
+document.getElementById("clearCustom").addEventListener("click", function(){
+        // var toBeDeleted = document.getElementById("custom"+i);
+        // toBeDeleted.remove();
+        localStorage.clear();
+        window.location.reload();
+});
 
 
 //insertImage
@@ -460,3 +484,59 @@ document.getElementById("imageContainerWatch44").appendChild(imageCollection[9])
 //     // use .length to add to imageCollection + for loops
 //     console.log(totalCurrentSize);
 //     console.log(i); //11th elements
+
+
+
+// error check that prompt is integer value 
+    // do {
+    //     var windowCreateNewHeight = parseInt(window.prompt("Enter height you want: "));
+    //     var windowCreateNewWidth = parseInt(window.prompt("Enter width you want: "));
+    // } while (isNaN(windowCreateNewHeight) && isNaN(windowCreateNewWidth));
+    // var createNewHeight = windowCreateNewHeight;
+    // var createNewWidth = windowCreateNewWidth;
+    
+        // var createNewHeight = windowCreateNewHeight;
+        // var createNewWidth = windowCreateNewWidth;
+
+        // parent = document.createElement("div");
+        // parent.setAttribute("class", "imageContainer");
+        // parent.setAttribute("id", "addNew"+newButtonContainer);
+        // // grandParent.appendChild(parent);
+        // document.getElementById("customContainer").appendChild(parent);
+
+
+        // newElement = document.createElement("button");
+        // newElement.setAttribute("class", "button");
+        // newElement.setAttribute("id", "custom"+newButtonContainer);
+        // innerTextElement = document.createElement("p");
+        // innerTextElement.setAttribute("class", "buttonText");
+        // innerTextElement.innerHTML = "Custom Size "+newButtonContainer;
+        // newElement.appendChild(innerTextElement);
+
+        // // use for inside of element
+        // document.getElementById("addNew"+newButtonContainer).appendChild(newElement);
+
+
+        // var totalCurrentSize = document.getElementsByClassName("button");
+
+        // i = totalCurrentSize.length;
+        // localStorage.setItem("custom"+newButtonContainer, "custom"+newButtonContainer);
+        // localStorage.setItem("custom"+newButtonContainer+"Height", windowCreateNewHeight);
+        // localStorage.setItem("custom"+newButtonContainer+"Width",windowCreateNewWidth);
+        // console.log(window.localStorage);
+
+        // //localStorage.removeItem();
+        // // create button nxt to custom title, allowing user to reset local storage
+
+        // localStorage.getItem("custom"+newButtonContainer);
+
+        // //localStorage.clear();
+
+        // function testNewElementOpen(){
+        //     //newWindow = window.open("", "_blank", createNewHeight, createNewWidth);
+        //     newWindow = window.open("", "_blank", "width=" + createNewWidth + ",height=" + createNewHeight); //Return as a string
+        // }
+        // document.getElementById("custom"+newButtonContainer).addEventListener("click", testNewElementOpen);
+
+        // newButtonContainer++;
+    

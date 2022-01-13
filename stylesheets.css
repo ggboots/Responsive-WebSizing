@@ -160,6 +160,7 @@ body{
 }
 
 #clearCustom{
+    cursor:pointer;
     display: flex;
     justify-content: center;
     height:60px;
@@ -176,12 +177,12 @@ body{
     flex-direction: column;
     padding:10px;
     gap: 5px;
-    position: absolute;
+    position: fixed;
     top:0;
     bottom: 0;
     left: 0;
     right: 0;
-    
+
     margin: auto;
 }
 .inputContainer > p{
