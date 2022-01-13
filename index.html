@@ -9,105 +9,107 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
-    <div class="navbar">
-        <div class="nav-logo">
-            <i class="fas fa-laptop-code"></i>
-        </div>
-        <div class="nav-list">
-            <li>Sizing Website</li>
-            <div id="clearCustom"><i class="fas fa-trash-restore"></i></div>
-        </div>  
-            <select name="DeviceCategory" id="DeviceCategory">
-                <option value="none">--</option>
-                <option value="desktop">Desktop</option>
-                <option value="phone">Phone</option>
-                <option value="tablet">Tablet</option>
-                <option value="watch">Watch</option>
-                <optgroup label="Desktop">
-                    <option value="macbook14">Macbook 14"</option>
-                    <option value="macbook16">Macbook 16"</option>  
-                </optgroup>
-                <optgroup label="Phones">
-                    <option value="iPhoneX">iPhone X</option>
-                    <option value="iPhone6">iPhone 6</option>
-                </optgroup>
-            </select>
-    </div>
-    <div class="sectionTitle" id="desktopTitle"> Desktop Sizes<div class="dropDownArrow" id="dropDownDesktop"><i class="fas fa-arrow-right"></i></div>
-        <div class="sectionDesktop" id="sectionDesktop">
-            <div class="imageContainer" id="desktopIcon">
-                <button id="DesktopBtn" class="button">
-                    <p class="buttonText">Desktop </p>
-                </button>
+    <div id="backdrop">
+        <div class="navbar">
+            <div class="nav-logo">
+                <i class="fas fa-laptop-code"></i>
             </div>
+            <div class="nav-list">
+                <li>Sizing Website</li>
+                <div id="clearCustom"><i class="fas fa-trash-restore"></i></div>
+            </div>  
+                <select name="DeviceCategory" id="DeviceCategory">
+                    <option value="none">--</option>
+                    <option value="desktop">Desktop</option>
+                    <option value="phone">Phone</option>
+                    <option value="tablet">Tablet</option>
+                    <option value="watch">Watch</option>
+                    <optgroup label="Desktop">
+                        <option value="macbook14">Macbook 14"</option>
+                        <option value="macbook16">Macbook 16"</option>  
+                    </optgroup>
+                    <optgroup label="Phones">
+                        <option value="iPhoneX">iPhone X</option>
+                        <option value="iPhone6">iPhone 6</option>
+                    </optgroup>
+                </select>
+        </div>
+        <div class="sectionTitle" id="desktopTitle"> Desktop Sizes<div class="dropDownArrow" id="dropDownDesktop"><i class="fas fa-arrow-right"></i></div>
+            <div class="sectionDesktop" id="sectionDesktop">
+                <div class="imageContainer" id="desktopIcon">
+                    <button id="DesktopBtn" class="button">
+                        <p class="buttonText">Desktop </p>
+                    </button>
+                </div>
+                    <div class="imageContainer">
+                        <button id="mbp14Btn" class="button">
+                            <p class="buttonText">Macbook Pro 14" inch</p>
+                        </button>
+                    </div>
+                    <div class="imageContainer">
+                        <button id="mbp16Btn" class="button">
+                            <p class="buttonText">Macbook Pro 16" inch</p>
+                        </button>
+                    </div> 
+            </div>
+        </div>
+        <div class="sectionTitle" id="phoneTitle" >Phone Sizes <div class="dropDownArrow" id="dropDownPhone"><i class="fas fa-arrow-right"></i></div>
+            <div class="sectionPhone" id="sectionPhone">
                 <div class="imageContainer">
-                    <button id="mbp14Btn" class="button">
-                        <p class="buttonText">Macbook Pro 14" inch</p>
+                    <button id="phoneBtn" class="button">
+                        <p class="buttonText">Phone</p>
                     </button>
                 </div>
                 <div class="imageContainer">
-                    <button id="mbp16Btn" class="button">
-                        <p class="buttonText">Macbook Pro 16" inch</p>
+                    <button id="iPhoneXBtn" class="button">
+                        <p class="buttonText">iPhone X</p>
                     </button>
-                </div> 
-        </div>
-    </div>
-    <div class="sectionTitle" id="phoneTitle" >Phone Sizes <div class="dropDownArrow" id="dropDownPhone"><i class="fas fa-arrow-right"></i></div>
-        <div class="sectionPhone" id="sectionPhone">
-            <div class="imageContainer">
-                <button id="phoneBtn" class="button">
-                    <p class="buttonText">Phone</p>
-                </button>
-            </div>
-            <div class="imageContainer">
-                <button id="iPhoneXBtn" class="button">
-                    <p class="buttonText">iPhone X</p>
-                </button>
-            </div>
-            <div class="imageContainer">
-                <button id="iPhone6Btn" class="button">
-                    <p class="buttonText">iPhone 6</p>
-                </button>
+                </div>
+                <div class="imageContainer">
+                    <button id="iPhone6Btn" class="button">
+                        <p class="buttonText">iPhone 6</p>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="sectionTitle" id="tabletTitle">Tablet Sizes<div class="dropDownArrow" id="dropDownTablet"><i class="fas fa-arrow-right"></i></div>
-        <div class="sectionTablet" id="sectionTablet">
-            <div class="imageContainer">
-                <button id="tabletBtn" class="button">
-                    <p class="buttonText">Tablet</p>
-                </button>
-            </div>
-            <div class="imageContainer">
-                <button id="iPad12inch" class="button">
-                    <p class="buttonText">iPad Pro 12.9inch </p>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="sectionTitle" id="watchTitle">Watch Sizes<div class="dropDownArrow" id="dropDownWatch"><i class="fas fa-arrow-right"></i></div>
-        <div class="sectionWatch" id="sectionWatch">
-            <div class="imageContainer" id="imageContainerWatch40">
-                <button id="watch40Btn" class="button">
-                    <p class="buttonText">Apple Watch 40mm</p> 
-                </button>
-            </div>
-            <div class="imageContainer" id="imageContainerWatch44">
-                <button id="watch44Btn" class="button">
-                    <p class="buttonText">Apple Watch 44mm</p>
-                </button>
+        <div class="sectionTitle" id="tabletTitle">Tablet Sizes<div class="dropDownArrow" id="dropDownTablet"><i class="fas fa-arrow-right"></i></div>
+            <div class="sectionTablet" id="sectionTablet">
+                <div class="imageContainer">
+                    <button id="tabletBtn" class="button">
+                        <p class="buttonText">Tablet</p>
+                    </button>
+                </div>
+                <div class="imageContainer">
+                    <button id="iPad12inch" class="button">
+                        <p class="buttonText">iPad Pro 12.9inch </p>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="sectionTitle" >Custom Sizes <div class="dropDownArrow" style="display: none;"></div>
-        <div class="sectionCustom" id="customContainer"></div>
-    </div>
+        <div class="sectionTitle" id="watchTitle">Watch Sizes<div class="dropDownArrow" id="dropDownWatch"><i class="fas fa-arrow-right"></i></div>
+            <div class="sectionWatch" id="sectionWatch">
+                <div class="imageContainer" id="imageContainerWatch40">
+                    <button id="watch40Btn" class="button">
+                        <p class="buttonText">Apple Watch 40mm</p> 
+                    </button>
+                </div>
+                <div class="imageContainer" id="imageContainerWatch44">
+                    <button id="watch44Btn" class="button">
+                        <p class="buttonText">Apple Watch 44mm</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="sectionTitle" >Custom Sizes <div class="dropDownArrow" style="display: none;"></div>
+            <div class="sectionCustom" id="customContainer"></div>
+        </div>
 
-    <div class="createNew"><i id="createNew" class="far fa-plus-square"></i></div>
-    <div id="showImages" class="hideImages">
-        <i id="showIcon" class="far fa-eye"></i>
-        <i id="hideIcon" class="far fa-eye-slash"></i>
+        <div class="createNew"><i id="createNew" class="far fa-plus-square"></i></div>
+        <div id="showImages" class="hideImages">
+            <i id="showIcon" class="far fa-eye"></i>
+            <i id="hideIcon" class="far fa-eye-slash"></i>
+        </div>
+        <script src="app.js"></script>
     </div>
-    <script src="app.js"></script>
 </body>
 </html>

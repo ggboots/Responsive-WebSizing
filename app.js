@@ -6,9 +6,11 @@ let newWindow;
 let onClick;
 var desktopMediaMatch = window.matchMedia("(max-width:900px)")
 var mobileMediaMatch = window.matchMedia("(max-width:500px)")
-var newButtonContainer = 0;
+var newButtonContainer = 1;
 
 var localStorageCount = 0;
+var localStorageCountButton = 0;
+
 
 // 2 - Uses array elements to assing variable with total numbers
 // *end of script, uses 2 for loops
@@ -23,7 +25,7 @@ var localStorageCount = 0;
 // Check both Custom button, height and new width
 // 2) display saved content to page, and then carry on count
 // 3) make clear button, as i need to reset the count instead of reset throught console
-
+let dynamicHeight;
 for(var i =0; i<localStorage.length; i++){
     if (localStorageCount == 0 ){
         parent = document.createElement("div");
@@ -31,8 +33,6 @@ for(var i =0; i<localStorage.length; i++){
         parent.setAttribute("id", "addNew"+newButtonContainer);
         // grandParent.appendChild(parent);
         document.getElementById("customContainer").appendChild(parent);
-
-
         newElement = document.createElement("button");
         newElement.setAttribute("class", "button");
         newElement.setAttribute("id", "custom"+newButtonContainer);
@@ -45,12 +45,26 @@ for(var i =0; i<localStorage.length; i++){
     document.getElementById("addNew"+newButtonContainer).appendChild(newElement);
         localStorageCount++;
     } else if (localStorageCount == 1){
+        let storageHeight = localStorage.getItem("custom"+newButtonContainer+"Height");
+        dynamicHeight = storageHeight;
+        console.log(dynamicHeight);
         localStorageCount++;
     } else if (localStorageCount == 2){
+        let storageWidth = localStorage.getItem("custom"+newButtonContainer+"Width");
+        console.log(storageWidth);
         localStorageCount = 0;
-    }
+        newButtonContainer++;
+        localStorageCountButton++;
 
-    newButtonContainer++;
+        function dynamicButton(){
+            
+        }
+    }
+}
+
+
+for(var i=0;i<localStorageCountButton.length;i++){
+
 }
 
 
@@ -287,12 +301,42 @@ var createNew = document.getElementById("createNew");
 createNew.addEventListener("click", function(){
 
     // Create custom input screen
+    // blank background
+    // two inputs
+    do {
+        inputContainer = document.createElement("div");
+        inputTitle = document.createElement("p");
+        inputTitle.innerHTML = "Create Custom Size"
+        inputHeightBox = document.createElement("input");
+        inputWidthBox = document.createElement("input");
+        inputCreateButton = document.createElement("button");
+        inputCreateButton.setAttribute("class","far fa-plus-square")
+        // inputHeightBox.setAttribute("type", "Number")
+        // inputWidthBox.setAttribute("type", "Number")
+        inputContainer.setAttribute("class", "inputContainer");
+        let backdrop = document.getElementById("backdrop");
+        backdrop.style.filter = "blur(8px)";
+
+        inputContainer.append(inputTitle);
+        inputContainer.append(inputHeightBox);
+        inputContainer.append(inputWidthBox);
+        inputContainer.append(inputCreateButton);
+
+        document.body.append(inputContainer);
+
+        inputCreateButton.addEventListener("click", function(){
+
+        });
+
+
+        
+    } while(isNaN(windowCreateNewHeight) && isNaN(windowCreateNewWidth));
 
     // error check that prompt is integer value 
-    do {
-        var windowCreateNewHeight = parseInt(window.prompt("Enter height you want: "));
-        var windowCreateNewWidth = parseInt(window.prompt("Enter width you want: "));
-    } while (isNaN(windowCreateNewHeight) && isNaN(windowCreateNewWidth));
+    // do {
+    //     var windowCreateNewHeight = parseInt(window.prompt("Enter height you want: "));
+    //     var windowCreateNewWidth = parseInt(window.prompt("Enter width you want: "));
+    // } while (isNaN(windowCreateNewHeight) && isNaN(windowCreateNewWidth));
     var createNewHeight = windowCreateNewHeight;
     var createNewWidth = windowCreateNewWidth;
 
