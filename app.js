@@ -6,27 +6,12 @@ var newButtonContainer = 1;
 var localStorageCount = 0;
 
 
-
-// 2 - Uses array elements to assing variable with total numbers
-// *end of script, uses 2 for loops
-
-// 3 - Add Icon - Ability for user to add height and Width, 
-// and then create a button in memory
-// that user can click to reveal size put in
-// Save in cache
-
-
-// 1) LocalStorage on load,
-// Check both Custom button, height and new width
-// 2) display saved content to page, and then carry on count
-// 3) make clear button, as i need to reset the count instead of reset throught console
 let dynamicHeight;
 for(var i =0; i<localStorage.length; i++){
     if (localStorageCount == 0 ){
         parent = document.createElement("div");
         parent.setAttribute("class", "imageContainer");
         parent.setAttribute("id", "addNew"+newButtonContainer);
-        // grandParent.appendChild(parent);
         document.getElementById("customContainer").appendChild(parent);
         newElement = document.createElement("button");
         newElement.setAttribute("class", "button");
@@ -193,6 +178,10 @@ function iPhoneXSize(){
     newWindow = window.open("", "_blank", "width=375px, height=812px");
 }
 
+function galaxys21Ultra(){
+    newWindow = window.open("", "_blank", "width=375px, height=812px");
+}
+
 // Tablet sizes
 function TabletSize(){
     newWindow = window.open("", "_blank", "width=1024, height=768");
@@ -224,6 +213,7 @@ document.getElementById("mbp16Btn").addEventListener("click", mbp16Size);
 document.getElementById("phoneBtn").addEventListener("click", PhoneSize);
 document.getElementById("iPhoneXBtn").addEventListener("click", iPhoneXSize);
 document.getElementById("iPhone6Btn").addEventListener("click", iPhone6Size);
+document.getElementById("galaxys21Ultra").addEventListener("click", galaxys21Ultra);
 document.getElementById("tabletBtn").addEventListener("click", TabletSize);
 document.getElementById("iPad12inch").addEventListener("click", iPad12inch);
 document.getElementById("watch40Btn").addEventListener("click", applWatch40);
@@ -307,7 +297,7 @@ createNew.addEventListener("click", function(){
         inputHeightBox.setAttribute("id", "inputHeightBox")
         inputWidthBox.setAttribute("id", "inputWidthBox")
         inputContainer.setAttribute("class", "inputContainer");
-        inputContainer.setAttribute("ID", "inputContainer");
+        inputContainer.setAttribute("is", "inputContainer");
         let backdrop = document.getElementById("backdrop");
         backdrop.style.filter = "blur(8px)";
         backdrop.style.pointerEvents = "none";
@@ -380,9 +370,6 @@ createNew.addEventListener("click", function(){
     
         windowCreateNewHeight = document.getElementById("inputHeightBox").value;
         windowCreateNewWidth = document.getElementById("inputWidthBox").value;
-
-        
-
         
     } while(isNaN(windowCreateNewHeight) && isNaN(windowCreateNewWidth));   
 
@@ -398,15 +385,10 @@ document.getElementById("clearCustom").addEventListener("click", function(){
 //insertImage
 var imageCollection = [];
 
-//imageCollection[i] = document.createElement("img");
-//imageCollection[i].setAttribute("class", "sectionIconImage");
-// and then allow image assignment to be done by actually going to each array element
-// document.getElementById("desktopIcon").appendChild(imageCollection[i]);
-
 imageCollection[0] = document.createElement("img");
 imageCollection[0].setAttribute("class", "sectionIconImage");
 imageCollection[0].src = 'img/desktopWallpaper.jpg';
-document.getElementById("desktopIcon").appendChild(imageCollection[0]);
+document.getElementById("DesktopBtn").appendChild(imageCollection[0]);
 
 imageCollection[1] = document.createElement("img");
 imageCollection[1].setAttribute("class", "sectionIconImage");
@@ -435,28 +417,27 @@ document.getElementById("iPhone6Btn").appendChild(imageCollection[5]);
 
 imageCollection[6] = document.createElement("img");
 imageCollection[6].setAttribute("class", "sectionIconImage");
-imageCollection[6].src = 'img/iPadBasicIcon.png';
-document.getElementById("tabletBtn").appendChild(imageCollection[6]);
+imageCollection[6].src = 'img/GalaxyS21Ultra.png';
+document.getElementById("galaxys21Ultra").appendChild(imageCollection[6]);
 
 imageCollection[7] = document.createElement("img");
 imageCollection[7].setAttribute("class", "sectionIconImage");
-imageCollection[7].src = 'img/iPad12.9Icon.png';
-document.getElementById("iPad12inch").appendChild(imageCollection[7]);
+imageCollection[7].src = 'img/iPadBasicIcon.png';
+document.getElementById("tabletBtn").appendChild(imageCollection[7]);
 
 imageCollection[8] = document.createElement("img");
 imageCollection[8].setAttribute("class", "sectionIconImage");
-imageCollection[8].src = 'img/40mmAppleWatchIcon.png';
-document.getElementById("imageContainerWatch40").appendChild(imageCollection[8]);
+imageCollection[8].src = 'img/iPad12.9Icon.png';
+document.getElementById("iPad12inch").appendChild(imageCollection[8]);
 
 imageCollection[9] = document.createElement("img");
 imageCollection[9].setAttribute("class", "sectionIconImage");
-imageCollection[9].src = 'img/44mmAppleWatchIcon.png';
-document.getElementById("imageContainerWatch44").appendChild(imageCollection[9]);
+imageCollection[9].src = 'img/40mmAppleWatchIcon.png';
+document.getElementById("watch40Btn").appendChild(imageCollection[9]);
+
+imageCollection[10] = document.createElement("img");
+imageCollection[10].setAttribute("class", "sectionIconImage");
+imageCollection[10].src = 'img/44mmAppleWatchIcon.png';
+document.getElementById("watch44Btn").appendChild(imageCollection[10]);
 
 
-
-// for loop which assigns array element based on how many photos are available
-// After loop, assign images 
-// another for loop that the runs through assigned arrays and appends 
-
-    

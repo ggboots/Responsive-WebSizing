@@ -58,10 +58,8 @@ body{
 .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionCustom{
     background-color:#24252a;
     width:100%;
-    padding:10px;
-    padding-right: 0;
-    margin:0;
     display:grid;
+    padding-top: 1rem;
     grid-template-columns: 1fr 1fr;
     grid-gap:20px;
 }
@@ -270,7 +268,6 @@ body{
 
 }
 
-
 @media only screen and (min-width:900px){
     .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch, .sectionCustom{
         display:grid;
@@ -284,17 +281,6 @@ body{
     .nav-list{
         width:25vw;
     }
-
-  
 }
-/* @media only screen and (min-width:1600px){
-    .sectionDesktop, .sectionPhone, .sectionTablet, .sectionWatch{
-        display:grid;
-        grid-template-columns: repeat(4,1fr);
-        justify-content: start;
-        align-content: center;
-        margin:auto;
-        top:50%;
-    }
-} */
+
 
